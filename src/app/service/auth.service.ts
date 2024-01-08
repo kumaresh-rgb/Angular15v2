@@ -9,7 +9,7 @@ export class AuthService {
   constructor(private http:HttpClient) { 
 
   }
-  apiurl='http://localhost:3000/user';
+  apiurl='https://my-json-server.typicode.com/kumaresh-rgb/kumaresh-rgb-db/user';
 
   RegisterUser(inputdata:any){
     return this.http.post(this.apiurl,inputdata)
@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.put(this.apiurl+'/'+id,inputdata);
   }
   getuserrole(){
-    return this.http.get('http://localhost:3000/role');
+    return this.http.get('https://my-json-server.typicode.com/kumaresh-rgb/kumaresh-rgb-db/db');
   }
   isloggedin(){
     return sessionStorage.getItem('username')!=null;
@@ -33,9 +33,14 @@ export class AuthService {
     return sessionStorage.getItem('role')!=null?sessionStorage.getItem('role')?.toString():'';
   }
   GetAllCustomer(){
-    return this.http.get('http://localhost:3000/customer');
+    return this.http.get('https://my-json-server.typicode.com/kumaresh-rgb/kumaresh-rgb-db/customer');
   }
-  Getaccessbyrole(role:any,menu:any){
-    return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
+  // Getaccessbyrole(role:any,menu:any){
+  //   return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
+    
+  // }
+  Getaccessbyrole(role: any, menu: any) {
+    return this.http.get('https://my-json-server.typicode.com/kumaresh-rgb/kumaresh-rgb-db/db/roleacess?role=' + role + '&menu=' + menu);
   }
+  
 }
