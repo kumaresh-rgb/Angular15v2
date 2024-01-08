@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.put(this.apiurl+'/'+id,inputdata);
   }
   getuserrole(){
-    return this.http.get('https://my-json-server.typicode.com/kumaresh-rgb/kumaresh-rgb-db/db');
+    return this.http.get('https://my-json-server.typicode.com/kumaresh-rgb/kumaresh-rgb-db/role');
   }
   isloggedin(){
     return sessionStorage.getItem('username')!=null;
