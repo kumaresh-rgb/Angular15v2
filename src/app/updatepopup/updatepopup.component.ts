@@ -30,6 +30,9 @@ export class UpdatepopupComponent implements OnInit {
   registerform = this.builder.group({
     id: this.builder.control(''),
     name: this.builder.control(''),
+    lastname:this.builder.control(''),
+    phoneno:this.builder.control(''),
+    dob:this.builder.control(''),
     password: this.builder.control(''),
     email: this.builder.control(''),
     gender: this.builder.control('male'),
@@ -42,9 +45,11 @@ export class UpdatepopupComponent implements OnInit {
       this.editdata = res;
       console.log(this.editdata);
       this.registerform.setValue({
-        id: this.editdata.id, name: this.editdata.name,
+        id: this.editdata.id, name: this.editdata.name,lastname:this.editdata.lastname,
         password: this.editdata.password, email: this.editdata.email, gender: this.editdata.gender,
-        role: this.editdata.role, isactive: this.editdata.isactive
+        role: this.editdata.role, isactive: this.editdata.isactive,
+        dob:this.editdata.dob,
+        phoneno:this.editdata.phoneno
       });
     });
   }

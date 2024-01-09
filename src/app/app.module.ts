@@ -14,7 +14,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CustomerComponent } from './customer/customer.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +38,7 @@ import { CustomerComponent } from './customer/customer.component';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
+    MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,MatButtonModule, MatMenuModule,
     ToastrModule.forRoot()
   ],
   providers: [],

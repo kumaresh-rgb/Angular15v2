@@ -33,7 +33,7 @@ export class UserComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     });
   }
-  displayedColumns: string[] = ['username', 'name', 'email', 'status', 'role', 'action'];
+  displayedColumns: string[] = ['username', 'name','lastname','dob','userrole', 'email', 'status', 'role', 'action','phoneno'];
 
   updateuser(code: any) {
     this.OpenDialog('1000ms', '600ms', code);
@@ -43,7 +43,7 @@ export class UserComponent implements AfterViewInit {
     const popup = this.dialog.open(UpdatepopupComponent, {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
-      width: '30%',
+      width: '100%',
       data: {
         usercode: code
       }
