@@ -1,56 +1,121 @@
 <h1 mat-dialog-title>Update User</h1>
-<form [formGroup]="registerform" (ngSubmit)="UpdateUser()">
-    <div mat-dialog-content>
-        <mat-form-field class="example-full-width">
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName="name" >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastname" >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Username</mat-label>
-            <input matInput formControlName="id" >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>DOB</mat-label>
-            <input matInput formControlName="dob" >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Phone No</mat-label>
-            <input matInput formControlName="phoneno" >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password" >
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" >
-          </mat-form-field>
-          <mat-radio-group formControlName="gender" aria-label="Select an option">
-            <mat-radio-button value="male">Male</mat-radio-button>
-            <mat-radio-button value="female">Female</mat-radio-button>
-          </mat-radio-group>
-        <mat-form-field>
-            <mat-label>Role</mat-label>
-            <mat-select formControlName="role">
-                <mat-option value=''>Select Role</mat-option>
-                <mat-option *ngFor="let item of rolelist" [value]="item.code">
-                    {{item.name}}
-                </mat-option>
-            </mat-select>
+
+<ng-container *ngIf="vieworedit() ;then view ; else edit  ">
+</ng-container>
+<ng-template Class="true1" #view>
+<form [formGroup]="registerform"   (ngSubmit)="UpdateUser()">
+    <div mat-dialog-content readonly >
+      <mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input readonly matInput formControlName="name" >
         </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input readonly matInput formControlName="lastname" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input readonly matInput formControlName="id" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>DOB</mat-label>
+          <input readonly matInput formControlName="dob" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone No</mat-label>
+          <input readonly matInput formControlName="phoneno" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input readonly type="password" matInput formControlName="password" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input readonly matInput formControlName="email" >
+        </mat-form-field>
+        <mat-radio-group  disabled="true" disformControlName="gender" aria-label="Select an option">
+          <mat-radio-button  value="male">Male</mat-radio-button>
+          <mat-radio-button  value="female">Female</mat-radio-button>
+        </mat-radio-group>
+      <mat-form-field disabled="true">
+          <mat-label  disabled="true" >Role</mat-label> 
+          <mat-select  formControlName="role">
+              <mat-option disabled="true" value=''>Select Role</mat-option>
+              <mat-option disabled="true" *ngFor="let item of rolelist" [value]="item.code">
+                  {{item.name}}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
 
-        <section class="example-section">
-            <br>
-            <mat-checkbox  formControlName="isactive" class="example-margin">Is Active</mat-checkbox>
-        </section>
+    
 
-    </div>
-    <div mat-dialog-actions>
-        <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Save</button>
-        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-    </div>
+  </div>
+ 
 </form>
+  </ng-template>
+
+  
+
+
+
+
+
+
+  <ng-template #edit>
+    <form [formGroup]="registerform"  (ngSubmit)="UpdateUser()">
+    <div mat-dialog-content>
+      <mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="name" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastname" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="id" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>DOB</mat-label>
+          <input matInput formControlName="dob" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone No</mat-label>
+          <input matInput formControlName="phoneno" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" >
+        </mat-form-field>
+        <mat-radio-group formControlName="gender" aria-label="Select an option">
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+      <mat-form-field>
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+              <mat-option value=''>Select Role</mat-option>
+              <mat-option *ngFor="let item of rolelist" [value]="item.code">
+                  {{item.name}}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <section class="example-section">
+          <br>
+          <mat-checkbox  formControlName="isactive" class="example-margin">Is Active</mat-checkbox>
+      </section>
+
+  </div>
+  <div mat-dialog-actions>
+      <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Save</button>
+      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  </div>
+</form>
+  </ng-template>
+   

@@ -1,0 +1,16 @@
+.mat-mdc-header-cell{
+    width: 20px;
+}
+
+#userrole{
+    color: blue;
+    text-decoration: underline;
+}
+
+.mat-mdc-cell{
+    align-items: center;
+}
+
+.test{
+    width :100px;
+}

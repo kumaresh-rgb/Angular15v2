@@ -43,9 +43,12 @@ export class AuthService {
   //   return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
     
   // }
+  DeleteUsers(id:any){
+    return this.http.delete(this.apiurl+'/'+id);
+  }
   Getaccessbyrole(role: any, menu: any) {
     return this.http.get('http://localhost:3000/roleaccess?role=' + role + '&menu=' + menu);
   }
-
+ 
   
 }

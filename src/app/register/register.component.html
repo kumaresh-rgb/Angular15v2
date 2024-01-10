@@ -9,20 +9,20 @@
         [formGroup]="registerform"
         (ngSubmit)="proceedregister()"
       >
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>First Name</mat-label>
           <input matInput formControlName="name" />
         </mat-form-field>
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>Last Name</mat-label>
           <input matInput formControlName="lastname" />
         </mat-form-field>
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>Username</mat-label>
           <input matInput formControlName="id" />
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Date of Birth</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="dob" />
           <mat-hint>MM/DD/YYYY</mat-hint>
@@ -33,37 +33,35 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <button
-          mat-button
-          [matMenuTriggerFor]="menu"
-          formControlName="userrole"
-        >
-          Menu
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Select Role</mat-label>
+          <select matInput formControlName="userrole" matNativeControl required>
+            <option value="volvo">PA</option>
+            
+            <option value="saab">Manager</option>
+  
+          </select>
+        </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>Phone No</mat-label>
           <span matPrefix>+91 &nbsp;</span>
           <input type="tel" matInput formControlName="phoneno" />
         </mat-form-field>
-        <mat-form-field class="example-full-width">
+        <mat-form-field  appearance="outline" class="example-full-width">
           <mat-label>Password</mat-label>
           <input type="password" matInput formControlName="password" />
         </mat-form-field>
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="outline" class="example-full-width">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" />
         </mat-form-field>
-        <mat-radio-group formControlName="gender" aria-label="Select an option">
+        <mat-radio-group appearance="outline" formControlName="gender" aria-label="Select an option">
           <mat-radio-button value="male">Male</mat-radio-button>
           <mat-radio-button value="female">Female</mat-radio-button>
         </mat-radio-group>
         <div>
-          <button mat-raised-button color="primary">Submit</button>
+          <button mat-raised-button appearance="outline" color="primary">Submit</button>
           <a routerLink="/login" mat-raised-button color="accent"
             >Back to Login</a
           >

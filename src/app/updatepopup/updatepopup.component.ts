@@ -3,11 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/auth.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-updatepopup',
   templateUrl: './updatepopup.component.html',
-  styleUrls: ['./updatepopup.component.css']
+  styleUrls: ['./updatepopup.component.css'],
+  
 })
 export class UpdatepopupComponent implements OnInit {
 
@@ -27,6 +29,9 @@ export class UpdatepopupComponent implements OnInit {
   rolelist: any;
   editdata: any;
 
+
+
+
   registerform = this.builder.group({
     id: this.builder.control(''),
     name: this.builder.control(''),
@@ -40,24 +45,42 @@ export class UpdatepopupComponent implements OnInit {
     isactive: this.builder.control(false)
   });
 
-  loaduserdata(code: any) {
-    this.service.GetUserbyCode(code).subscribe(res => {
-      this.editdata = res;
-      console.log(this.editdata);
-      this.registerform.setValue({
-        id: this.editdata.id, name: this.editdata.name,lastname:this.editdata.lastname,
-        password: this.editdata.password, email: this.editdata.email, gender: this.editdata.gender,
-        role: this.editdata.role, isactive: this.editdata.isactive,
-        dob:this.editdata.dob,
-        phoneno:this.editdata.phoneno
-      });
-    });
-  }
+ 
+
+ 
+
   UpdateUser() {
     this.service.updateuser(this.registerform.value.id, this.registerform.value).subscribe(res => {
       this.toastr.success('Updated successfully.');
       this.dialogref.close();
     });
   }
+
+
+  loaduserdata(code: any) {
+      this.service.GetUserbyCode(code).subscribe(res => {
+        this.editdata = res;
+        console.log(this.editdata);
+        this.registerform.setValue({
+          id: this.editdata.id, name: this.editdata.name,lastname:this.editdata.lastname,
+          password: this.editdata.password, email: this.editdata.email, gender: this.editdata.gender,
+          role: this.editdata.role, isactive: this.editdata.isactive,
+          dob:this.editdata.dob,
+          phoneno:this.editdata.phoneno,
+          
+        });
+      });
+  }
+
+  vieworedit(){
+    if (true) {
+    return this.loaduserdata
+    }
+  }
+  
+  updateuser1(){
+
+  }
+ 
 
 }

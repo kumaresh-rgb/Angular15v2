@@ -21,6 +21,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { ViewpageComponent } from './viewpage/viewpage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     UserComponent,
     UpdatepopupComponent,
-    CustomerComponent
+    CustomerComponent,
+    ViewpageComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import {MatButtonModule} from '@angular/material/button';
     MaterialModule,
     HttpClientModule,
     MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,MatButtonModule, MatMenuModule,
+    CommonModule,
     ToastrModule.forRoot()
   ],
   providers: [],
